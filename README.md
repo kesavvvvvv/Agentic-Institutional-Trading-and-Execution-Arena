@@ -1,5 +1,4 @@
-﻿@'
-# AITEA — Agentic Institutional Trading & Execution Arena
+﻿# AITEA — Agentic Institutional Trading & Execution Arena
 
 AITEA is a realistic institutional trading simulation environment for evaluating AI agents on portfolio construction, execution quality, liquidity-aware trading, risk management, and adaptation to market shocks. It is designed for the Meta × Scaler OpenEnv hackathon and follows the required OpenEnv-style lifecycle with typed models, `reset()`, `step()`, `state()`, `openenv.yaml`, a Dockerized runtime, and a baseline inference script.
 
@@ -133,7 +132,7 @@ aitea/
 ├── scripts/
 ├── docs/
 └── assets/
-
+```
 ## 6. Environment Overview
 
 AITEA simulates a market where an agent receives structured observations and must choose actions that improve performance under real trading frictions.
