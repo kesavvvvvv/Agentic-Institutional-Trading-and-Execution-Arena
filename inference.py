@@ -1,4 +1,3 @@
-```python
 import os
 import json
 import time
@@ -12,6 +11,9 @@ from openai import OpenAI
 API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:7860")
 MODEL_NAME = os.getenv("MODEL_NAME", "gpt-4o-mini")
 HF_TOKEN = os.getenv("HF_TOKEN")
+
+if HF_TOKEN is None:
+    raise ValueError("HF_TOKEN is required but not set")
 
 TASK_NAME = os.getenv("TASK_NAME", "execution_easy")
 BENCHMARK = "aitea_trading_env"
@@ -252,4 +254,3 @@ def run():
 # =========================
 if __name__ == "__main__":
     run()
-```
