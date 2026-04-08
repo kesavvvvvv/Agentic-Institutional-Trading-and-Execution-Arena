@@ -1,0 +1,1 @@
+from src.aitea.api.app import app

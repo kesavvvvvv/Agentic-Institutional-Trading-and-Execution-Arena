@@ -7,3 +7,4 @@ requests
 openai
 python-dotenv
 pytest
+openenv-core>=0.2.0
