@@ -4,10 +4,12 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y 
-    gcc 
-    curl 
+
+RUN apt-get update && apt-get install -y \
+    gcc \
+    curl \
     && rm -rf /var/lib/apt/lists/*
+
 
 COPY requirements.txt .
 
