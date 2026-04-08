@@ -51,7 +51,15 @@ def log_end(success: bool, steps: int, score: float, rewards: List[float]):
         f"[END] success={str(success).lower()} steps={steps} score={score:.3f} rewards={rewards_str}",
         flush=True
     )
-
+def warmup_llm():
+    try:
+        client.chat.completions.create(
+            model=MODEL_NAME,
+            messages=[{"role": "user", "content": "hello"}],
+            max_tokens=1,
+        )
+    except Exception as e:
+        print("Warmup failed:", e, flush=True)
 
 # =========================
 # ENVIRONMENT API
@@ -274,6 +282,7 @@ def get_action(observation: dict, task_name: str) -> dict:
 # MAIN LOOP
 # =========================
 def run():
+    warmup_llm()   
     rewards: List[float] = []
     steps = 0
     score = 0.0
