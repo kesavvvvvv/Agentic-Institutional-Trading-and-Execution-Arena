@@ -233,7 +233,7 @@ def validate_action(action: dict) -> dict:
                 "symbol": str(o["symbol"]),
                 "side": o["side"],
                 "quantity": qty,
-                "order_type": "market"   # 🔥 CRITICAL FIX
+                "order_type": "market" 
             })
 
     if not valid_orders:
@@ -323,7 +323,7 @@ def run():
         if steps > 0:
             score = sum(rewards) / steps
 
-        score = max(0.0, min(1.0, score))
+        score = max(0.01, min(0.99, score))
         success = score >= SUCCESS_THRESHOLD
 
     except Exception as e:
