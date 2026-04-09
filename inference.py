@@ -287,11 +287,6 @@ def run():
     steps = 0
     score = 0
     success = False
-    TASK_MAPPING = {
-                "execution_easy": "task_execution_easy",
-                "liquidity_medium": "task_liquidity_medium",
-                "rebalance_hard": "task_rebalance_hard",
-            }
     log_start(TASK_NAME, BENCHMARK, MODEL_NAME)
 
     try:
@@ -307,8 +302,8 @@ def run():
             action = get_action(observation, TASK_NAME)
             action_str = json.dumps(action, separators=(",", ":"))
 
-            mapped_task = TASK_MAPPING.get(TASK_NAME, TASK_NAME)
-            result = reset_env(mapped_task)
+            
+            result = reset_env(TASK_NAME)
 
             transition = result.get("transition", {})
 
