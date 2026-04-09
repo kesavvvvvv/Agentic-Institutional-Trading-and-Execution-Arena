@@ -45,7 +45,7 @@ action_space:
 
 reward:
   type: float
-  range: [0.0, 1.0]
+  range: [0, 1]
   description: Dense normalized reward combining pnl, execution quality, and risk control
 
 tasks:
@@ -61,7 +61,7 @@ tasks:
 
 grader:
   type: deterministic
-  range: [0.0, 1.0]
+  range: [0, 1]
 
 constraints:
   max_episode_steps: 100
