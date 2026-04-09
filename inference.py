@@ -287,7 +287,11 @@ def run():
     steps = 0
     score = 0
     success = False
-
+    TASK_MAPPING = {
+                "execution_easy": "task_execution_easy",
+                "execution_medium": "task_execution_medium",
+                "execution_hard": "task_execution_hard",
+            }
     log_start(TASK_NAME, BENCHMARK, MODEL_NAME)
 
     try:
@@ -303,12 +307,13 @@ def run():
             action = get_action(observation, TASK_NAME)
             action_str = json.dumps(action, separators=(",", ":"))
 
-            result = step_env(action)
+            mapped_task = TASK_MAPPING.get(TASK_NAME, TASK_NAME)
+            result = reset_env(mapped_task)
 
             transition = result.get("transition", {})
 
             observation = transition.get("observation", {})
-            reward = float(transition.get("reward", 0.0))
+            reward = float(transition.get("reward", 0))
             done = transition.get("done", False)
             error = transition.get("error")
 
